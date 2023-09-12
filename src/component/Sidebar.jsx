@@ -7,7 +7,7 @@ import { links } from "../data/dummy";
 import { UseStateContext } from "../context/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+  const { activeMenu, setActiveMenu, screenSize, currentColor, currentMode } =
     UseStateContext();
 
   const activeLink =
@@ -37,7 +37,9 @@ const Sidebar = () => {
                 <button
                   type="button"
                   onClick={() => setActiveMenu((prev) => !prev)}
-                  className="text-xl rounded-full p-3 hover:bg-light-gray"
+                  className={`text-xl rounded-full p-3 ${
+                    currentMode ? "text-white hover:bg-slate-700" : ""
+                  } hover:bg-light-gray`}
                 >
                   <MdOutlineCancel />
                 </button>
